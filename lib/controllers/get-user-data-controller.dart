@@ -8,7 +8,7 @@ class GetUserDataController extends GetxController {
 
   Future<List<QueryDocumentSnapshot<Object?>>> getUserData(String uId) async {
     final QuerySnapshot userData =
-        await _firestore.collection('users').where('uId', isEqualTo: uId).get();
+        await _firestore.collection('user').where('uId', isEqualTo: uId).get();
     return userData.docs;
   }
 }

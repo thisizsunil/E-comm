@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Container(
                 width: Get.width,
                 alignment: Alignment.center,
-                child: Lottie.asset('assets/images/splash-icon.json'),
+                child: Lottie.asset('assets/images/splash.json'),
               ),
             ),
             Container(

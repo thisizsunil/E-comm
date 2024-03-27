@@ -51,7 +51,7 @@ class SignUpController extends GetxController {
 
       // add data into database
       _firestore
-          .collection('users')
+          .collection('user')
           .doc(userCredential.user!.uid)
           .set(userModel.toMap());
       EasyLoading.dismiss();

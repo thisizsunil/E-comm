@@ -39,7 +39,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   ? Text("Welcome to my app")
                   : Column(
                       children: [
-                        Lottie.asset('assets/images/splash-icon.json'),
+                        Lottie.asset('assets/images/splash.json'),
                       ],
                     ),
               SizedBox(

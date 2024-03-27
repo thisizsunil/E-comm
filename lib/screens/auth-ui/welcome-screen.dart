@@ -4,6 +4,7 @@ import 'package:e_comm/screens/auth-ui/sign-in-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+
 import '../../controllers/google-sign-in-controller.dart';
 import '../../utils/app-constant.dart';
 
@@ -30,7 +31,7 @@ class WelcomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              child: Lottie.asset('assets/images/splash-icon.json'),
+              child: Lottie.asset('assets/images/splash.json'),
             ),
             Container(
               margin: EdgeInsets.only(top: 20.0),
@@ -55,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 child: TextButton.icon(
                   icon: Image.asset(
-                    'assets/images/final-google-logo.png',
+                    'assets/images/google.png',
                     width: Get.width / 12,
                     height: Get.height / 12,
                   ),
