@@ -6,19 +6,17 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../models/user-model.dart';
 import '../screens/user-panel/main-screen.dart';
-import 'get-device-token-controller.dart';
+
 
 class GoogleSignInController extends GetxController {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> signInWithGoogle() async {
-    final GetDeviceTokenController getDeviceTokenController =
-        Get.put(GetDeviceTokenController());
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await googleSignIn.signIn();
-
+          
       if (googleSignInAccount != null) {
         EasyLoading.show(status: "Please wait...");
         final GoogleSignInAuthentication googleSignInAuthentication =
@@ -39,7 +37,7 @@ class GoogleSignInController extends GetxController {
             email: user.email.toString(),
             phone: user.phoneNumber.toString(),
             userImg: user.photoURL.toString(),
-            userDeviceToken: getDeviceTokenController.deviceToken.toString(),
+            userDeviceToken: '',
             country: '',
             userAddress: '',
             street: '',
@@ -51,7 +49,7 @@ class GoogleSignInController extends GetxController {
 
           ///implementing query
           await FirebaseFirestore.instance
-              .collection('users')
+              .collection('user')
               .doc(user.uid)
               .set(userModel.toMap());
           EasyLoading.dismiss();
