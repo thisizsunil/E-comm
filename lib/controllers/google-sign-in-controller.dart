@@ -1,13 +1,12 @@
-// ignore_for_file: file_names, unused_local_variable, unused_field, avoid_print
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_comm/controllers/get-device-token-controller.dart';
-import 'package:e_comm/models/user-model.dart';
-import 'package:e_comm/screens/user-panel/main-screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../models/user-model.dart';
+import '../screens/user-panel/main-screen.dart';
+import 'get-device-token-controller.dart';
 
 class GoogleSignInController extends GetxController {
   final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -21,7 +20,7 @@ class GoogleSignInController extends GetxController {
           await googleSignIn.signIn();
 
       if (googleSignInAccount != null) {
-        EasyLoading.show(status: "Please wait..");
+        EasyLoading.show(status: "Please wait...");
         final GoogleSignInAuthentication googleSignInAuthentication =
             await googleSignInAccount.authentication;
 
@@ -29,12 +28,10 @@ class GoogleSignInController extends GetxController {
           accessToken: googleSignInAuthentication.accessToken,
           idToken: googleSignInAuthentication.idToken,
         );
-
         final UserCredential userCredential =
             await _auth.signInWithCredential(credential);
 
         final User? user = userCredential.user;
-
         if (user != null) {
           UserModel userModel = UserModel(
             uId: user.uid,
@@ -52,12 +49,14 @@ class GoogleSignInController extends GetxController {
             city: '',
           );
 
+          ///implementing query
           await FirebaseFirestore.instance
               .collection('users')
               .doc(user.uid)
               .set(userModel.toMap());
           EasyLoading.dismiss();
-          Get.offAll(() => const MainScreen());
+          Get.offAll(() =>
+              MainScreen()); //move to login screen  after completely login
         }
       }
     } catch (e) {
