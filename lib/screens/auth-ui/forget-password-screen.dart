@@ -1,10 +1,12 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unused_local_variable, file_names
+
+import 'package:e_comm/utils/app-constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../controllers/forget-password-controller.dart';
-import '../../utils/app-constant.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
@@ -14,8 +16,8 @@ class ForgetPasswordScreen extends StatefulWidget {
 }
 
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
-  final ForgetPasswordController forgetPasswordController =
-      Get.put(ForgetPasswordController());
+  final ForgerPasswordController forgerPasswordController =
+      Get.put(ForgerPasswordController());
   TextEditingController userEmail = TextEditingController();
 
   @override
@@ -34,14 +36,15 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
           child: Column(
             children: [
               isKeyboardVisible
-                  ? //SizedBox.shrink()
-                  Text("Welcome to my app")
+                  ? Text("Welcome to my app")
                   : Column(
                       children: [
-                        Lottie.asset('assets/images/animation.json'),
+                        Lottie.asset('assets/images/splash.json'),
                       ],
                     ),
-              SizedBox(height: Get.height / 20),
+              SizedBox(
+                height: Get.height / 20,
+              ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 5.0),
                 width: Get.width,
@@ -52,24 +55,27 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     cursorColor: AppConstant.appScendoryColor,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                        hintText: "Email",
-                        prefixIcon: Icon(Icons.email),
-                        contentPadding: EdgeInsets.only(top: 2.0, left: 8.0),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0))),
+                      hintText: "Email",
+                      prefixIcon: Icon(Icons.email),
+                      contentPadding: EdgeInsets.only(top: 2.0, left: 8.0),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
                   ),
                 ),
               ),
               SizedBox(
-                height: Get.height / 25,
+                height: Get.height / 20,
               ),
               Material(
                 child: Container(
-                  width: Get.width / 2.5,
+                  width: Get.width / 2,
                   height: Get.height / 18,
                   decoration: BoxDecoration(
-                      color: AppConstant.appScendoryColor,
-                      borderRadius: BorderRadius.circular(20.0)),
+                    color: AppConstant.appScendoryColor,
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
                   child: TextButton(
                     child: Text(
                       "Forget",
@@ -81,14 +87,14 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       if (email.isEmpty) {
                         Get.snackbar(
                           "Error",
-                          "Please enter all details.",
+                          "Please enter all details",
                           snackPosition: SnackPosition.BOTTOM,
                           backgroundColor: AppConstant.appScendoryColor,
                           colorText: AppConstant.appTextColor,
                         );
                       } else {
                         String email = userEmail.text.trim();
-                        forgetPasswordController.ForgetPasswordMethod(email);
+                        forgerPasswordController.ForgetPasswordMethod(email);
                       }
                     },
                   ),

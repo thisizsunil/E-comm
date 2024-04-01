@@ -14,7 +14,7 @@ class CategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: FirebaseFirestore.instance.collection('categories').get(), /// name of collection in databse
+      future: FirebaseFirestore.instance.collection('categories').get(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return Center(
@@ -30,7 +30,7 @@ class CategoriesWidget extends StatelessWidget {
           );
         }
 
-        if (snapshot.data!.docs.isEmpty) {  // show something 
+        if (snapshot.data!.docs.isEmpty) {
           return Center(
             child: Text("No category found!"),
           );

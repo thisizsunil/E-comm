@@ -13,9 +13,10 @@ class CategoriesModel {
     required this.categoryName,
     required this.createdAt,
     required this.updatedAt,
-  });
+  });   //calling contructor
 
   // Serialize the UserModel instance to a JSON map
+  ///to map function to convert  into map 
   Map<String, dynamic> toMap() {
     return {
       'categoryId': categoryId,
@@ -27,6 +28,7 @@ class CategoriesModel {
   }
 
   // Create a UserModel instance from a JSON map
+  ////frommap method which used to provide data under json 
   factory CategoriesModel.fromMap(Map<String, dynamic> json) {
     return CategoriesModel(
       categoryId: json['categoryId'],
