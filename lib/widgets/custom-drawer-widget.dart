@@ -37,7 +37,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               child: ListTile(
                 titleAlignment: ListTileTitleAlignment.center,
                 title: Text(
-                  "Waris",
+                  "Merit",
                   style: TextStyle(color: AppConstant.appTextColor),
                 ),
                 subtitle: Text(
@@ -48,7 +48,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   radius: 22.0,
                   backgroundColor: AppConstant.appMainColor,
                   child: Text(
-                    "W",
+                    "M",
                     style: TextStyle(color: AppConstant.appTextColor),
                   ),
                 ),
