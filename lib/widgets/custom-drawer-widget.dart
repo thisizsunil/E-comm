@@ -8,6 +8,9 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../screens/auth-ui/welcome-screen.dart';
+import '../screens/user-panel/all-products-screen.dart';
+import '../screens/user-panel/cart-screen.dart';
+import '../screens/user-panel/main-screen.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});
@@ -60,7 +63,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               thickness: 1.5,
               color: Colors.grey,
             ),
-            Padding(
+              Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: ListTile(
                 titleAlignment: ListTileTitleAlignment.center,
@@ -76,8 +79,13 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   Icons.arrow_forward,
                   color: AppConstant.appTextColor,
                 ),
+                onTap: () {
+                  Get.back();
+                  Get.to(() => MainScreen());
+                },
               ),
             ),
+        
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: ListTile(
@@ -87,13 +95,15 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   style: TextStyle(color: AppConstant.appTextColor),
                 ),
                 leading: Icon(
-                  Icons.production_quantity_limits,
+                  Icons.local_mall,
                   color: AppConstant.appTextColor,
                 ),
                 trailing: Icon(
                   Icons.arrow_forward,
                   color: AppConstant.appTextColor,
                 ),
+                onTap: () => Get.to(() => AllProductsScreen()),
+                
               ),
             ),
             Padding(
@@ -116,6 +126,30 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   Get.back();
                   Get.to(() => AllOrdersScreen());
                 },
+              ),
+            ),
+              Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: ListTile(
+                titleAlignment: ListTileTitleAlignment.center,
+                title: Text(
+                  "Cart",
+                  style: TextStyle(color: AppConstant.appTextColor),
+                ),
+                leading: Icon(
+                  Icons.shopping_cart,
+                  color: AppConstant.appTextColor,
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward,
+                  color: AppConstant.appTextColor,
+                ),
+                // onTap: () {
+                //   Get.back();
+                //   Get.to(() => AllOrdersScreen());
+                // },
+            onTap: () => Get.to(() => CartScreen()),
+
               ),
             ),
             Padding(

@@ -6,6 +6,7 @@ import 'package:e_comm/screens/user-panel/cart-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
 import '../../utils/app-constant.dart';
 import '../../widgets/all-products-widget.dart';
 import '../../widgets/banner-widget.dart';
@@ -38,7 +39,7 @@ class MainScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Icon(
-                Icons.shopping_cart,
+                Icons.notifications,
               ),
             ),
           ),
