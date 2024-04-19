@@ -210,7 +210,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   static Future<void> sendMessageOnWhatsApp({
     required ProductModel productModel,
   }) async {
-    final number = "+9779864424054";
+    final number = "+9779847941850";
     final message =
         "Hello merit \n i want to know about this product \n ${productModel.productName} \n ${productModel.productId}";
 
