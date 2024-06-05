@@ -11,6 +11,7 @@
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await Firebase.initializeApp(
 //     options: DefaultFirebaseOptions.currentPlatform,
+
 //   );
   
 //   runApp(
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'PS KitchenCraft ',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

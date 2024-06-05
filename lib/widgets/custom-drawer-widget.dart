@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../screens/auth-ui/welcome-screen.dart';
-import '../screens/user-panel/all-products-screen.dart';
 import '../screens/user-panel/cart-screen.dart';
+import '../screens/user-panel/contct&qr.dart';
 import '../screens/user-panel/main-screen.dart';
 
 class DrawerWidget extends StatefulWidget {
@@ -40,7 +40,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               child: ListTile(
                 titleAlignment: ListTileTitleAlignment.center,
                 title: Text(
-                  "Merit",
+                  "PS Kitchen",
                   style: TextStyle(color: AppConstant.appTextColor),
                 ),
                 subtitle: Text(
@@ -51,7 +51,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   radius: 22.0,
                   backgroundColor: AppConstant.appMainColor,
                   child: Text(
-                    "M",
+                    "PS",
                     style: TextStyle(color: AppConstant.appTextColor),
                   ),
                 ),
@@ -91,7 +91,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               child: ListTile(
                 titleAlignment: ListTileTitleAlignment.center,
                 title: Text(
-                  "Products",
+                  "Products Details",
                   style: TextStyle(color: AppConstant.appTextColor),
                 ),
                 leading: Icon(
@@ -102,7 +102,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   Icons.arrow_forward,
                   color: AppConstant.appTextColor,
                 ),
-                onTap: () => Get.to(() => AllProductsScreen()),
+                onTap: () => Get.to(() => AllOrdersScreen()),
                 
               ),
             ),
@@ -157,11 +157,40 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               child: ListTile(
                 titleAlignment: ListTileTitleAlignment.center,
                 title: Text(
-                  "Contact",
+                  "Contacts and QR",
                   style: TextStyle(color: AppConstant.appTextColor),
                 ),
                 leading: Icon(
                   Icons.help,
+                  color: AppConstant.appTextColor,
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward,
+                  color: AppConstant.appTextColor,
+                ),
+                  onTap: () {
+                  Get.back();
+                  Get.to(() => ShopkeeperInfoPage());
+                },
+              ),
+            ),
+               Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: ListTile(
+                onTap: () async {
+                  GoogleSignIn googleSignIn = GoogleSignIn();
+                  FirebaseAuth _auth = FirebaseAuth.instance;
+                  await _auth.signOut();
+                  await googleSignIn.signOut();
+                  Get.offAll(() => WelcomeScreen());
+                },
+                titleAlignment: ListTileTitleAlignment.center,
+                title: Text(
+                  "Calender Today",
+                  style: TextStyle(color: AppConstant.appTextColor),
+                ),
+                leading: Icon(
+                  Icons.calendar_today,
                   color: AppConstant.appTextColor,
                 ),
                 trailing: Icon(

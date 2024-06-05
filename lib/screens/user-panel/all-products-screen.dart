@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, prefer_interpolation_to_compose_strings
+// ignore_for_file: file_names, prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, prefer_interpolation_to_compose_strings, unnecessary_import
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,13 +6,14 @@ import 'package:e_comm/models/product-model.dart';
 import 'package:e_comm/utils/app-constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:image_card/image_card.dart';
 
 import 'product-deatils-screen.dart';
 
-class AllProductsScreen extends StatelessWidget {
-  const AllProductsScreen({super.key});
+class AddProductScreen extends StatelessWidget {
+  const AddProductScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

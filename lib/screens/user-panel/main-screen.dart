@@ -81,7 +81,7 @@ class MainScreen extends StatelessWidget {
               HeadingWidget(
                 headingTitle: "All Products",
                 headingSubTitle: "According to your budget",
-                onTap: () => Get.to(() => AllProductsScreen()),
+                onTap: () => Get.to(() => AddProductScreen()),
                 buttonText: "See More >",
               ),
 
