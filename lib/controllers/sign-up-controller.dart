@@ -11,7 +11,7 @@ class SignUpController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  //for password visibilty
+  //for password visibilty    in flutter 
   var isPasswordVisible = false.obs;
 
   Future<UserCredential?> signUpMethod(
